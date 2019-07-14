@@ -1,18 +1,18 @@
 function cpfValidator(cpf) {
-  const cpfArray = convertInputToArrayString(cpf);
-  const cpfArrayNumber = parseToNumber(cpfArray);
-  if (isAllTheSame(cpfArrayNumber)) {
+  const cpfString = parseString(cpf);
+  const cpfArray = parseNumber(cpfString);
+  if (isAllTheSame(cpfArray)) {
     return false;
   }
-  const calcFirstDigit = calcPrimaryFactor(cpfArrayNumber);
-  if (isEqualToVerifierDigit(calcFirstDigit, cpfArrayNumber[9])) {
-    const calcSecondDigit = calcSecondaryFactor(cpfArrayNumber);
-    return isEqualToVerifierDigit(calcSecondDigit, cpfArrayNumber[10]);
+  const firstDigit = calculateDigit(cpfArray, 9);
+  const secondDigit = calculateDigit(cpfArray, 10);
+  if (cpfArray[9] === firstDigit && cpfArray[10] === secondDigit) {
+    return true;
   }
   return false;
 }
 
-function convertInputToArrayString(cpf) {
+function parseString(cpf) {
   if (typeof cpf === 'string') {
     return cpf.replace(/\D/g, '').split('');
   } else if (typeof cpf === 'number') {
@@ -21,33 +21,26 @@ function convertInputToArrayString(cpf) {
   throw new Error(`Tipo de entrada inválida: ${typeof cpf}`);
 }
 
-function parseToNumber(newArray) {
-  if (newArray.length === 11) {
-    return newArray.map(Number);
+function parseNumber(cpfString) {
+  if (cpfString.length === 11) {
+    return cpfString.map(Number);
   }
-  throw new Error(`Verifique número de dígitos: Esperado 11 /Encontrado ${newArray.length}`);
+  throw new Error(`Verifique número de dígitos: Esperado 11 /Encontrado ${cpfString.length}`);
 }
 
-function isAllTheSame(parseArray) {
-  return parseArray.every(value => value === parseArray[0]);
+/*
+Apesar de um cpf com todos os dígitos iguais satisfazer o cálculo de verificação,
+esse cenário não é válido. Por isso essa exceção da regra de négocio foi adicionada.
+*/
+function isAllTheSame(cpf) {
+  return cpf.every(value => value === cpf[0]);
 }
 
-function isEqualToVerifierDigit(resultCalc, digit) {
-  let verifierDigit = (resultCalc * 10) % 11;
-  verifierDigit = verifierDigit === 10 ? 0 : verifierDigit;
-  return verifierDigit === digit;
-}
-
-function calcPrimaryFactor(array) {
-  return array.slice(0, 9).reduce((acc, currentValue, currentIndex) => {
-    return acc += currentValue * (10 - currentIndex);
-  }, 0);
-}
-
-function calcSecondaryFactor(array) {
-  return array.slice(0, 10).reduce((acc, currentValue, currentIndex) => {
-    return acc += currentValue * (11 - currentIndex);
-  }, 0);
+function calculateDigit(cpf, digitIndex) {
+  const sum = cpf.slice(0, digitIndex).reduce((acc, currentValue, currentIndex) => (
+    acc += currentValue * (digitIndex + 1 - currentIndex)
+  ), 0);
+  return ((sum * 10) % 11) === 10 ? 0 : sum;
 }
 
 module.exports = cpfValidator;

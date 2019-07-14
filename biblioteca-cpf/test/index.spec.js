@@ -7,7 +7,7 @@ describe('cpfValidator', () => {
 
   describe('Entrada válida do CPF', () => {
     it('Retorna true: CPF válido com máscara ', () => {
-      expect(cpfValidator('338.669.038-63')).to.equal(true);
+      expect(cpfValidator('163.416.790-25')).to.equal(true);
     });
     it('Retorna true: CPF válido sem máscara', () => {
       expect(cpfValidator(72664043048)).to.equal(true);
