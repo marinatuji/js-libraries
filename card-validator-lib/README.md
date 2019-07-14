@@ -1,6 +1,14 @@
-# Validador de Cartão de Crédito v.1.0.0 (Projeto com objetivo pedagógico)
+# Validador de Cartão de Crédito v.1.0.0 *
 
-Esta biblioteca se destina à validação de cartões de 16 dígitos, utilizando o algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) para uso em aplicações desenvolvidas em JavaScript.
+Esta biblioteca destina-se à validação de cartões de 16 dígitos, utilizando o algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) para uso em aplicações desenvolvidas em JavaScript.
+
+Versão 1.0.0 (Released)
+
+  * Estrutura inicial do projeto, utilizando a prática de desenvolvimento TDD (Test Driven Development);
+  * Funcionalidades: validação de cartão de 16 dígitos;
+  * Tipo de entrada de dados: para números de cartão de crédito com e sem máscara.
+
+*Este projeto tem objetivo pedagógico e foi realizado durante o bootcamp da Laboratoria.
 
 ## Como instalar:
 
@@ -12,21 +20,9 @@ Esta biblioteca se destina à validação de cartões de 16 dígitos, utilizando
 
 ```shell
 > const result = require("card-validator-lib");
-> result.cardValidator("4 9 8 4   2 3 5 0   6 2 5 1   4 4 8 8");
+> result.cardValidator("4984 2350 6251 4488");
 > // retorna true
 ```
-
-## Roadmap Oficial do Projeto
-
-Versão 1.1.0 (Maio/2019)
-
-  * funcionalidades: validação de cartão de 16 dígitos;
-  * tipo de entrada de dados: para números de cartão de crédito com e sem máscara. 
-
-Versão 1.0.0 (Released)
-
-  * estrutura inicial do projeto, utilizando a prática de desenvolvimento TDD (Test Driven Development), sem funcionalidades implementadas.
-
 
 ## Conceitos
 
@@ -48,4 +44,4 @@ Para nosso exemplo o resultado de 62 conte a quantidade de números que falta pa
 4 9 8 4   2 3 5 0   6 2 5 1   4 4 8     8
 8 9 7 4   4 3 1 0   3 2 1 1   8 4 7     62
 
-[fonte:](https://contaembanco.com.br/servicos/quais-e-quantos-sao-os-numeros-dos-cartoes-de-credito/)
+[Leia mais !](https://contaembanco.com.br/servicos/quais-e-quantos-sao-os-numeros-dos-cartoes-de-credito/)

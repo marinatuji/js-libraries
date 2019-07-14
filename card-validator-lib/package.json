@@ -1,7 +1,7 @@
 {
   "name": "card-validator-lib",
   "version": "1.0.1",
-  "description": "Esta biblioteca se destina à validação de cartão de crédito, utilizando o algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) para uso em aplicações desenvolvidas em JavaScript.",
+  "description": "Esta biblioteca destina-se à validação de cartão de crédito, utilizando o algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) para uso em aplicações desenvolvidas em JavaScript.",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
