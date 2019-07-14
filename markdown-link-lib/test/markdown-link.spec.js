@@ -9,7 +9,7 @@ describe('getLinksFromMd:', () => {
         .to.deep.equal([{ href: 'https://www.google.com', title: 'título' },
         { href: 'www.gmail.com', title: 'outro titulo' }]);
     });
-    it('Retorna um array de objeto p/ diretoorio: {href:link, title:título}', () => {
+    it('Retorna um array de objeto p/ diretório: {href:link, title:título}', () => {
       expect(getLinksFromMd(`texto 1 [título](../diretorio/do/link.txt) 
       texto 2 [outro titulo](./outro-diretorio)`))
         .to.deep.equal([{ href: '../diretorio/do/link.txt', title: 'título' },

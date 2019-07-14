@@ -1,16 +1,13 @@
-function getLinksFromMd(myText) {
-	return getLinks(myText);
-}
-
-function getLinks(myText) {
+function getLinksFromMd(text) {
 	const matches = [];
-	const myRegex = RegExp(/\[(.*?)\]\((.*?)\)/g);
-	let result = "";
-	while (result = myRegex.exec(myText)) {
+	const regExp = RegExp(/\[(.*?)\]\((.*?)\)/g);
+	let target = regExp.exec(text);
+	while (target) {
 		matches.push({
-			href: result[2],
-			title: result[1]
+			href: target[2],
+			title: target[1]
 		});
+		target = regExp.exec(text);
 	}
 	return matches;
 }
