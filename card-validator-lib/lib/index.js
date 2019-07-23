@@ -33,4 +33,4 @@ function calculateLuhn(arrayCard) {
     .reduce((acc, currentValue) => acc += currentValue);
 }
 
-module.exports = cardValidator;
+exports.cardValidator = cardValidator;

@@ -1,6 +1,6 @@
 {
   "name": "markdown-link-lib",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Esta biblioteca destina-se a converter links de um arquivo md em um array de objetos contendo titulo e o link.",
   "main": "lib/markdown-link.js",
   "dependencies": {},

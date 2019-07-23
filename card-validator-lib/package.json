@@ -1,6 +1,6 @@
 {
   "name": "mt-card-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Esta biblioteca destina-se à validação de cartão de crédito, utilizando o algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm) para uso em aplicações desenvolvidas em JavaScript.",
   "main": "lib/index.js",
   "directories": {

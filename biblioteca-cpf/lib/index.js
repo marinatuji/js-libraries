@@ -50,4 +50,4 @@ function calcSecondaryFactor(array) {
   }, 0);
 }
 
-module.exports = cpfValidator;
+exports.cpfValidator = cpfValidator;

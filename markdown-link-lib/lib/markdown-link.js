@@ -12,4 +12,4 @@ function getLinksFromMd(text) {
 	return matches;
 }
 
-module.exports = getLinksFromMd;
+exports.getLinksFromMd = getLinksFromMd;
